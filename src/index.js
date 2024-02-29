@@ -25,14 +25,14 @@ function runFunc () {
 
     gp.submitJob().then(function(jobInfo){
     // gp.execute().then(function(jobInfo){ //CANNOT use execute() since the GP service job itself is defined as submitJob() operation
-      const jobid = jobInfo.jobId;
-      console.log("job id: ", jobid);
+      // const jobid = jobInfo.jobId;
+      // console.log("job id: ", jobid);
 
-      const status = jobInfo.jobStatus;
-      console.log("job status:", status);
+      // const status = jobInfo.jobStatus;
+      // console.log("job status:", status);
 
       const options = {
-        interval: 3000,
+        interval: 1000,
         statusCallback: (j) => {
           console.log("Job Status: ", j.jobStatus);
         }
@@ -55,21 +55,25 @@ function runFunc () {
 };
 
 
-
+var emailBtnCounter = 0;
 
 function emailFunc() {
+  emailBtnCounter ++;
   console.log("email button is clicked");
-  document.getElementById("emailButtonID").style.color = 'blue';
+  // document.getElementById("emailButtonID").style.color = 'blue';
 
   var emailDiv = document.createElement('div');
+  emailDiv.style.textAlign = "center";
 
   if (htmlStr) {
     emailDiv.innerHTML = String(htmlStr);
   }
 
-  document.getElementsByTagName('body')[0].appendChild(document.createElement('br'))
-  document.getElementsByTagName('body')[0].appendChild(emailDiv);
-
+  if (emailBtnCounter == 1) {
+    // document.getElementsByTagName('body')[0].appendChild(document.createElement('br'))
+    document.getElementsByTagName('body')[0].appendChild(emailDiv);
+  }
+  
 };
 
 
