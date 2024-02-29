@@ -1,8 +1,4 @@
 
-
-//TODO - import timeout funcs
-
-
 var htmlStr = '';
 //onclick event
 
